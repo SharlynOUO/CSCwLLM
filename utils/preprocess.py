@@ -15,15 +15,16 @@ ERROR_PATH = args.error_set_path
 OUT_DIR = args.dataset_output_dir_path
 ENCODING_TYPE = args.encoding_type
 
+PROMPT = "请纠正此句的错别字:"
 
-def package_query(correct: str, error: str) -> str:
-    if len(correct)-len(error) != 0:
+
+def package_query(correct: str, error: str, prompt=PROMPT) -> str:
+    if len(correct) - len(error) != 0:
         return None
-    return json.dumps({"source": "请纠正此句的错别字:"+correct, "target": error})+"\n"
+    return json.dumps({"source": prompt + error, "target": correct}) + "\n"
 
 
 def main():
-
     srcf = open(CORRECT_PATH, mode="r", encoding=ENCODING_TYPE)
     errf = open(ERROR_PATH, mode="r", encoding=ENCODING_TYPE)
     outf = open(OUT_DIR, mode="w", encoding=ENCODING_TYPE)
@@ -34,7 +35,6 @@ def main():
     batch = []
     batch_count = 0
     while src and tar:
-
         q = package_query(src.strip(), tar.strip())
         if q == None:
             continue
@@ -57,5 +57,5 @@ def main():
     outf.close()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

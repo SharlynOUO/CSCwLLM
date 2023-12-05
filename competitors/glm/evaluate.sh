@@ -1,14 +1,14 @@
 PRE_SEQ_LEN=128
-CHECKPOINT=adgen-chatglm-6b-pt-128-2e-2
+CHECKPOINT=csc-chatglm-6b-pt-128-2e-2
 STEP=3000
 
 CUDA_VISIBLE_DEVICES=0 python3 main.py \
     --do_predict \
-    --validation_file AdvertiseGen/dev.json \
-    --test_file AdvertiseGen/dev.json \
+    --validation_file ../../data/validation.json \
+    --test_file ../../data/test.json \
     --overwrite_cache \
-    --prompt_column content \
-    --response_column summary \
+    --prompt_column source \
+    --response_column target \
     --model_name_or_path THUDM/chatglm-6b \
     --ptuning_checkpoint ./output/$CHECKPOINT/checkpoint-$STEP \
     --output_dir ./output/$CHECKPOINT \
