@@ -10,7 +10,9 @@
 - MEMORY: `43GB`
 
 # DataSets
-- **[sighan dataset](https://github.com/onebula/sighan_raw/tree/master/pair_data/simplified)**  
+- [sighan dataset](https://github.com/onebula/sighan_raw/tree/master/pair_data/simplified) 
+    - **Train set** sighan train set
+    - **validation set** sighan test set
 
 - **test set**: data.txt of nlpcc 2023 task8 
 # Preprocess
