@@ -104,7 +104,7 @@
 - `analyze`
     - The trend of loss decline curve was similar to the previous experiment.
     - You can see that the loss on the validation set at the beginning of the training is not as high as in the first experiment.
-    - 
+    - There is a slight improvement.
 
 # File Dir Tree
 - Here is the dir tree including whole source needed and result files outputed.
